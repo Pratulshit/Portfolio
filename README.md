@@ -1,4 +1,8 @@
-# 🌐 Pratul Shit — Portfolio
+<h1 align="center">🌐 Pratul Shit — Portfolio</h1>
+
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=CSE+Student;Web+Developer;Problem+Solver;Tech+Enthusiast" alt="Typing SVG" />
+</p>
 
 Personal portfolio website of a Computer Science & Engineering student, featuring an animated skills
 network, education timeline, certificates gallery and a working contact form that delivers messages
