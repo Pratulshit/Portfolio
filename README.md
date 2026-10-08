@@ -4,7 +4,7 @@ Personal portfolio website of a Computer Science & Engineering student, featurin
 network, education timeline, certificates gallery and a working contact form that delivers messages
 straight to my inbox.
 
-🔗 **Live Website:** https://pratulshit.github.io/Portfolio/
+🔗 **Live Website:** https://pratulshit.netlify.app/
 
 ---
 
@@ -39,7 +39,7 @@ straight to my inbox.
 ### Deployment
 | Service | Type |
 |---|---|
-| GitHub Pages | Static site hosting |
+| Netlify | Static site hosting |
 
 ---
 
@@ -79,12 +79,12 @@ No build step or dependencies needed. Either:
 
 ---
 
-## ☁️ Deployment (GitHub Pages)
+## ☁️ Deployment (Netlify)
 
-- 📂 Go to the repository **Settings → Pages**
-- 🌿 Source: **Deploy from a branch**
-- 🔀 Branch: `main`, Folder: `/ (root)`
-- 💾 Click **Save**. The site goes live in a minute at `https://pratulshit.github.io/Portfolio/`
+- 🔗 Connect the GitHub repository to Netlify (**Add new site → Import an existing project → GitHub**)
+- 🔨 Build Command: *(leave empty, no build step needed)*
+- 📂 Publish Directory: `/` (root)
+- 🚀 Click **Deploy**. Netlify auto-deploys on every push to `main`
 
 > ⚠️ The first time the contact form is used, FormSubmit sends an activation email to the receiving
 > address. Confirm it once, otherwise messages will not be delivered.
