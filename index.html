@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pratul Shit | CSE Student</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= BACKGROUND ================= -->
+
+    <div class="background-grid"></div>
+
+    <div class="blue-glow glow-one"></div>
+    <div class="blue-glow glow-two"></div>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+
+        <a href="#home" class="logo-mark">PS</a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+
+            <a href="#home" class="nav-link active">
+                Home
+            </a>
+
+            <a href="#skills" class="nav-link">
+                Skills
+            </a>
+
+            <a href="#education" class="nav-link">
+                Education
+            </a>
+            <a href="#certificates" class="nav-link">
+                Certificates
+            </a>
+            <a href="#contact" class="nav-link">
+                Contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= HOME ================= -->
+
+    <section id="home" class="hero">
+
+
+        <!-- ================= LEFT CONTENT ================= -->
+
+        <div class="hero-content">
+
+            <div class="availability">
+
+                <span class="availability-dot"></span>
+
+                Available for Opportunities
+
+            </div>
+
+
+            <p class="welcome">
+                WELCOME TO MY PORTFOLIO
+            </p>
+
+
+            <h1 class="hello">
+                Hello, I'm
+            </h1>
+
+
+            <h2 class="name">
+
+                <span class="name-white">
+                    Pratul
+                </span>
+
+                <span class="name-blue">
+                    Shit
+                </span>
+
+            </h2>
+
+
+            <!-- TYPING ANIMATION -->
+
+            <div class="typing-line">
+
+                I'm a
+                <span id="typing-text"></span>
+
+            </div>
+
+
+            <p class="hero-description">
+
+                Computer Science & Engineering student passionate about programming, web development, and building
+                modern, scalable digital solutions. Driven by a strong interest in technology, problem-solving, and
+                continuous learning.
+
+            </p>
+
+
+            <!-- BUTTONS -->
+
+            <div class="hero-buttons">
+
+
+                <!-- <a href="#projects" class="btn primary-btn">
+
+                    <span class="code-symbol">
+                        &lt;/&gt;
+                    </span>
+
+                    View My Work
+
+                </a> -->
+
+
+                <a href="assets/Pratul_Shit_Resume.pdf" class="btn btn-secondary" download>
+
+                    <i class="fa-solid fa-download"></i>
+
+                    Download Resume
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= RIGHT PHOTO ================= -->
+
+        <div class="hero-visual">
+
+
+            <!-- PHOTO -->
+
+            <div class="photo-wrapper">
+
+                <div class="photo-frame">
+
+                    <img src="assets/myphoto.jpeg" alt="Pratul Shit">
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SKILLS ================= -->
+
+    <section id="skills" class="skills-section">
+
+        <div class="skills-title">
+            <h2>Skills</h2>
+            <span></span>
+        </div>
+
+        <div class="skills-stage" id="skills-stage">
+
+        <div class="skills-network" id="skills-network">
+
+            <!-- SVG CONNECTIONS -->
+            <svg class="skill-connections" viewBox="0 0 1200 700" preserveAspectRatio="none">
+
+                <path class="connection-path" d="M 270 150 H 390 Q 450 150 500 250" />
+
+                <path class="connection-path" d="M 930 150 H 810 Q 750 150 700 250" />
+
+                <path class="connection-path" d="M 250 350 H 470" />
+
+                <path class="connection-path" d="M 950 350 H 730" />
+
+                <path class="connection-path" d="M 270 550 H 390 Q 450 550 500 450" />
+
+                <path class="connection-path" d="M 930 550 H 810 Q 750 550 700 450" />
+
+                <path class="connection-path" d="M 600 600 V 455" />
+
+
+                <!-- LIVE FLOW -->
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2.2s" repeatCount="indefinite" path="M 270 150 H 390 Q 450 150 500 250" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2.2s" begin="0.4s" repeatCount="indefinite"
+                        path="M 930 150 H 810 Q 750 150 700 250" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2s" begin="0.8s" repeatCount="indefinite" path="M 250 350 H 470" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2s" begin="1s" repeatCount="indefinite" path="M 950 350 H 730" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2.2s" begin="0.7s" repeatCount="indefinite"
+                        path="M 270 550 H 390 Q 450 550 500 450" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="2.2s" begin="1.2s" repeatCount="indefinite"
+                        path="M 930 550 H 810 Q 750 550 700 450" />
+                </circle>
+
+                <circle class="flow-dot" r="5">
+                    <animateMotion dur="1.8s" begin="0.5s" repeatCount="indefinite" path="M 600 600 V 455" />
+                </circle>
+
+            </svg>
+
+
+            <!-- CENTER -->
+
+            <div class="skills-core">
+
+                <div class="core-icon">
+                    &lt;/&gt;
+                </div>
+
+            </div>
+
+
+            <!-- HTML -->
+
+            <div class="skill-node html-node">
+
+                <div class="skill-icon html-logo">
+                    <i class="fa-brands fa-html5"></i>
+                </div>
+
+                <div class="skill-name">
+                    HTML
+                </div>
+
+            </div>
+
+
+            <!-- CSS -->
+
+            <div class="skill-node css-node">
+
+                <div class="skill-icon css-logo">
+                    <i class="fa-brands fa-css3-alt"></i>
+                </div>
+
+                <div class="skill-name">
+                    CSS
+                </div>
+
+            </div>
+
+
+            <!-- JAVASCRIPT -->
+
+            <div class="skill-node js-node">
+
+                <div class="skill-icon js-logo">
+                    <i class="fa-brands fa-js"></i>
+                </div>
+
+                <div class="skill-name">
+                    JavaScript
+                </div>
+
+            </div>
+
+
+            <!-- PYTHON -->
+
+            <div class="skill-node python-node">
+
+                <div class="skill-icon python-logo">
+                    <i class="fa-brands fa-python"></i>
+                </div>
+
+                <div class="skill-name">
+                    Python
+                </div>
+
+            </div>
+
+
+            <!-- JAVA -->
+
+            <div class="skill-node java-node">
+
+                <div class="skill-icon java-logo">
+                    <i class="fa-brands fa-java"></i>
+                </div>
+
+                <div class="skill-name">
+                    Java
+                </div>
+
+            </div>
+
+
+            <!-- SQL -->
+
+            <div class="skill-node sql-node">
+
+                <div class="skill-icon sql-logo">
+                    <i class="fa-solid fa-database"></i>
+                </div>
+
+                <div class="skill-name">
+                    SQL
+                </div>
+
+            </div>
+
+
+            <!-- C -->
+
+            <div class="skill-node c-node">
+
+                <div class="skill-icon c-logo">
+                    <span>C</span>
+                </div>
+
+                <div class="skill-name">
+                    C
+                </div>
+
+            </div>
+
+        </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+     EDUCATION SECTION
+===================================================== -->
+
+    <section id="education" class="education-section">
+
+        <!-- SECTION TITLE -->
+        <div class="education-title">
+            <h2>Education</h2>
+            <span></span>
+        </div>
+
+        <!-- EDUCATION TIMELINE -->
+        <div class="education-timeline">
+
+            <!-- Animated Vertical Line -->
+            <div class="education-line"></div>
+
+            <!-- ================= B.TECH ================= -->
+            <div class="education-item">
+
+                <div class="education-dot">
+                    <div class="dot-core"></div>
+                </div>
+
+                <div class="education-card">
+
+                    <div class="education-year">
+                        2024 – Expected 2027
+                    </div>
+
+                    <h3>
+                        Bachelor of Technology in Computer Science and Engineering
+                    </h3>
+
+                    <p class="education-institute">
+                        Maulana Abul Kalam Azad University of Technology, West Bengal
+                    </p>
+
+                    <p class="education-college">
+                        Hooghly Engineering and Technology College
+                    </p>
+
+                    <p class="education-result">
+                        CGPA: <strong>7.6</strong> (upto 6th semester)
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= DIPLOMA ================= -->
+            <div class="education-item">
+
+                <div class="education-dot">
+                    <div class="dot-core"></div>
+                </div>
+
+                <div class="education-card">
+
+                    <div class="education-year">
+                        2021 – 2024
+                    </div>
+
+                    <h3>
+                        Diploma in Computer Science and Technology
+                    </h3>
+
+                    <p class="education-institute">
+                        West Bengal State Council of Technical and Vocational
+                        Education and Skill Development
+                    </p>
+
+                    <p class="education-college">
+                        Bipradas Pal Chowdhury Institute of Technology
+                    </p>
+
+                    <p class="education-result">
+                        CGPA: <strong>8.5</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= SECONDARY ================= -->
+            <div class="education-item">
+
+                <div class="education-dot">
+                    <div class="dot-core"></div>
+                </div>
+
+                <div class="education-card">
+
+                    <div class="education-year">
+                        2021
+                    </div>
+
+                    <h3>
+                        Secondary Education
+                    </h3>
+
+                    <p class="education-institute">
+                        West Bengal State Council of Secondary Education
+                    </p>
+
+                    <p class="education-college">
+                        West Karanji Vidyasagar High School - H.S
+                    </p>
+
+                    <p class="education-result">
+                        Percentage: <strong>75%</strong>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+<!-- =====================================================
+     CERTIFICATES SECTION
+===================================================== -->
+
+<section id="certificates" class="certificates-section">
+
+    <div class="certificates-title">
+        <h2>Certificates</h2>
+        <span></span>
+    </div>
+
+
+    <div class="certificates-container">
+
+
+        <!-- ================= CERTIFICATE 1 ================= -->
+
+        <div class="certificate-item">
+
+            <img
+                src="assets/certificate_1.jpeg"
+                alt="Certificate 1"
+            >
+
+        </div>
+
+
+        <!-- ================= CERTIFICATE 2 ================= -->
+
+        <div class="certificate-item">
+
+            <img
+                src="assets/certificate_2.jpeg"
+                alt="Certificate 2"
+            >
+
+        </div>
+
+
+        <!-- ================= CERTIFICATE 3 ================= -->
+
+        <div class="certificate-item">
+
+            <img
+                src="assets/certificate_3.jpeg"
+                alt="Certificate 3"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+
+    <section class="section contact-section" id="contact">
+
+        <div class="skills-title contact-title">
+            <h2>Contact Us</h2>
+
+            <span></span>
+        </div>
+
+        <div class="contact-wrapper">
+
+            <!-- LEFT SIDE -->
+            <div class="contact-visual">
+
+                <div class="contact-orbit orbit-one"></div>
+                <div class="contact-orbit orbit-two"></div>
+
+                <div class="contact-plane">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+
+            </div>
+
+
+            <!-- RIGHT SIDE -->
+            <div class="contact-form-box">
+
+                <form id="contact-form">
+
+                    <div class="contact-input">
+
+                        <i class="fa-regular fa-user"></i>
+
+                        <input type="text" id="contact-name" name="name" placeholder="Your Name" required>
+
+                    </div>
+
+
+                    <div class="contact-input">
+
+                        <i class="fa-regular fa-envelope"></i>
+
+                        <input type="email" id="contact-email" name="email" placeholder="Your Email" required>
+
+                    </div>
+
+
+                    <div class="contact-input message-input">
+
+                        <i class="fa-regular fa-message"></i>
+
+                        <textarea id="contact-message" name="message" placeholder="Your Message" required></textarea>
+
+                    </div>
+
+
+                    <button type="submit" class="contact-send-btn" id="contact-submit">
+
+                        <i class="fa-regular fa-paper-plane"></i>
+
+                        <span>Send Message</span>
+
+                    </button>
+
+
+                    <!-- SUCCESS MESSAGE -->
+
+                    <div class="contact-status" id="contact-status"></div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+
+        <!-- ================= CONNECT WITH ME ================= -->
+
+        <div class="connect-section">
+
+            <div class="connect-heading">
+
+                <span></span>
+
+                <h3>Connect with me</h3>
+
+                <span></span>
+
+            </div>
+
+
+            <div class="connect-buttons">
+
+                <a href="https://www.linkedin.com/in/pratul-shit-aa621934a/" target="_blank"
+                    class="connect-btn linkedin">
+
+                    <i class="fa-brands fa-linkedin-in"></i>
+
+                    <span>LinkedIn</span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+
+                <a href="https://github.com/Pratulshit" target="_blank" class="connect-btn github">
+
+                    <i class="fa-brands fa-github"></i>
+
+                    <span>GitHub</span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+
+                <a href="https://leetcode.com/u/pratulshit2005/" target="_blank" class="connect-btn leetcode">
+
+                    <i class="fa-solid fa-code"></i>
+
+                    <span>LeetCode</span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+
+                <a href="mailto:bubai7846@gmail.com" class="connect-btn email">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <span>Email</span>
+
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026 Pratul Shit. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

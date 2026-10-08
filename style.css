@@ -1,0 +1,4366 @@
+/* =====================================================
+RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+
+    color: #ffffff;
+
+    background:
+        radial-gradient(
+            circle at 85% 15%,
+            rgba(0, 100, 255, 0.30),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 10% 50%,
+            rgba(0, 65, 180, 0.18),
+            transparent 35%
+        ),
+        #020a1c;
+
+    overflow-x: hidden;
+
+    width: 100%;
+
+    max-width: 100vw;
+}
+
+body.nav-locked {
+    overflow: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+
+/* =====================================================
+BACKGROUND GRID
+===================================================== */
+
+.background-grid {
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        );
+
+    background-size: 55px 55px;
+
+    pointer-events: none;
+
+    z-index: -5;
+}
+
+.blue-glow {
+    position: fixed;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: #006eff;
+
+    filter: blur(180px);
+
+    opacity: 0.12;
+
+    pointer-events: none;
+
+    z-index: -4;
+}
+
+.glow-one {
+    right: -200px;
+    top: 80px;
+}
+
+.glow-two {
+    left: -250px;
+    bottom: 0;
+}
+
+
+/* =====================================================
+NAVBAR
+===================================================== */
+
+.navbar {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 90px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 7%;
+
+    z-index: 1000;
+
+    background: transparent;
+
+    border: none;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    transition: background 0.3s ease, backdrop-filter 0.3s ease, height 0.3s ease;
+}
+
+.logo-mark {
+    display: none;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    padding: 8px 13px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(40, 150, 255, 0.4);
+
+    background: rgba(10, 60, 120, 0.22);
+}
+
+.nav-menu {
+    display: flex;
+
+    align-items: center;
+
+    gap: 42px;
+}
+
+.nav-link {
+    position: relative;
+
+    text-decoration: none;
+
+    color: #9caecc;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    padding: 15px 0;
+
+    transition: 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: #ffffff;
+}
+
+.nav-link::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: 2px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: #2ca9ff;
+
+    transition: 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+/* =====================================================
+MOBILE NAV TOGGLE (hidden on desktop)
+===================================================== */
+
+.nav-toggle {
+    display: none;
+
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 10px;
+
+    border: 1px solid rgba(40, 150, 255, 0.4);
+
+    background: rgba(10, 60, 120, 0.22);
+
+    cursor: pointer;
+
+    z-index: 1100;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+}
+
+.nav-toggle span {
+    display: block;
+
+    width: 20px;
+    height: 2px;
+
+    border-radius: 2px;
+
+    background: #ffffff;
+
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+
+/* =====================================================
+HERO
+===================================================== */
+
+.hero {
+    min-height: 100vh;
+
+    max-width: 1600px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding:
+        70px
+        7%
+        45px;
+}
+
+
+/* =====================================================
+HERO CONTENT
+===================================================== */
+
+.hero-content {
+    max-width: 650px;
+
+    animation:
+        heroReveal 1s ease forwards;
+}
+
+@keyframes heroReveal {
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* =====================================================
+AVAILABILITY
+===================================================== */
+
+.availability {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding:
+        10px 18px;
+
+    margin-bottom: 28px;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(40, 150, 255, 0.35);
+
+    background:
+        rgba(10, 60, 120, 0.20);
+
+    color: #94b5dd;
+
+    font-size: 13px;
+}
+
+.availability-dot {
+    width: 9px;
+    height: 9px;
+
+    border-radius: 50%;
+
+    background: #23d69b;
+
+    box-shadow:
+        0 0 12px #23d69b;
+
+    animation:
+        availabilityPulse 1.8s infinite;
+}
+
+@keyframes availabilityPulse {
+    50% {
+        opacity: 0.4;
+
+        transform:
+            scale(0.7);
+    }
+}
+
+
+/* =====================================================
+WELCOME
+===================================================== */
+
+.welcome {
+    color: #42b5ff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 4px;
+
+    margin-bottom: 20px;
+}
+
+
+/* =====================================================
+HELLO
+===================================================== */
+
+.hello {
+    color: #e3ebf8;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    margin-bottom: 5px;
+}
+
+
+/* =====================================================
+NAME
+===================================================== */
+
+.name {
+    display: flex;
+
+    align-items: baseline;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    font-size:
+        clamp(48px, 9vw, 105px);
+
+    line-height: 0.95;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 25px;
+}
+
+.name-white {
+    color: #ffffff;
+}
+
+.name-blue {
+    background:
+        linear-gradient(
+            90deg,
+            #b9e7ff,
+            #229cff,
+            #78ccff,
+            #087cff,
+            #b9e7ff
+        );
+
+    background-size: 300% auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+
+    animation:
+        nameGradient 5s linear infinite;
+}
+
+@keyframes nameGradient {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+}
+
+
+/* =====================================================
+TYPING ANIMATION
+===================================================== */
+
+.typing-line {
+    color: #e0e9f8;
+
+    font-size: clamp(19px, 4vw, 28px);
+
+    font-weight: 400;
+
+    margin-bottom: 22px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 4px;
+
+    justify-content: flex-start;
+}
+
+#typing-text {
+    color: #35aaff;
+
+    font-weight: 700;
+
+    margin-left: 7px;
+}
+
+#typing-text::after {
+    content: "|";
+
+    margin-left: 4px;
+
+    animation:
+        cursorBlink 0.75s infinite;
+}
+
+@keyframes cursorBlink {
+    50% {
+        opacity: 0;
+    }
+}
+
+
+/* =====================================================
+DESCRIPTION
+===================================================== */
+
+.hero-description {
+    max-width: 610px;
+
+    color: #91a8ca;
+
+    font-size: clamp(14.5px, 2vw, 17px);
+
+    line-height: 1.9;
+
+    margin-bottom: 32px;
+}
+
+
+/* =====================================================
+BUTTONS
+===================================================== */
+
+.hero-buttons {
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 11px;
+
+    text-decoration: none;
+
+    padding:
+        15px 24px;
+
+    border-radius: 15px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    transition: 0.3s ease;
+}
+
+.primary-btn {
+    color: #ffffff;
+
+    background:
+        linear-gradient(
+            135deg,
+            #168dff,
+            #006fe8
+        );
+
+    box-shadow:
+        0 10px 35px
+        rgba(0, 130, 255, 0.25);
+}
+
+.primary-btn:hover {
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 15px 45px
+        rgba(0, 140, 255, 0.4);
+}
+
+.btn-secondary {
+    color: #ffffff;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: all 0.35s ease;
+
+    border:
+        1px solid
+        rgba(0, 153, 255, 0.5);
+}
+
+.btn-secondary:hover {
+    transform:
+        translateY(-4px);
+
+    border-color: #28a9ff;
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 153, 255, 0.35),
+        0 8px 25px
+        rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -100%;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.15),
+            transparent
+        );
+
+    transition:
+        left 0.6s ease;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.code-symbol {
+    font-size: 16px;
+}
+
+.plane-icon {
+    width: 19px;
+    height: 19px;
+}
+
+
+/* =====================================================
+PHOTO AREA
+===================================================== */
+
+.hero-visual {
+    position: relative;
+
+    min-height: 650px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+PHOTO WRAPPER
+===================================================== */
+
+.photo-wrapper {
+    position: relative;
+
+    width: min(420px, 78vw);
+
+    height: min(585px, 109vw);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+}
+
+
+/* =====================================================
+PHOTO FRAME
+===================================================== */
+
+.photo-frame {
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding: 7px;
+
+    border-radius:
+        210px
+        210px
+        25px
+        25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #4bc5ff,
+            #0784ff,
+            #1b9dff
+        );
+
+    box-shadow:
+        0 0 40px
+        rgba(0, 145, 255, 0.38),
+
+        0 0 100px
+        rgba(0, 90, 255, 0.18);
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    animation:
+        photoFloat 5s ease-in-out infinite;
+}
+
+@keyframes photoFloat {
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+}
+
+.photo-frame img {
+    width: 100%;
+
+    height: 100%;
+
+    object-fit: cover;
+
+    object-position: center top;
+
+    display: block;
+
+    border-radius:
+        203px
+        203px
+        19px
+        19px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =====================================================
+SECTIONS
+===================================================== */
+
+.section {
+    min-height: 80vh;
+
+    max-width: 1400px;
+
+    margin: auto;
+
+    padding:
+        110px 8%;
+}
+
+.section-heading {
+    display: flex;
+
+    align-items: center;
+
+    gap: 18px;
+
+    margin-bottom: 45px;
+}
+
+.section-heading span {
+    color: #269fff;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+.section-heading h2 {
+    font-size: 45px;
+
+    color: #ffffff;
+}
+
+
+/* =====================================================
+GLASS CARD
+===================================================== */
+
+.glass-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(14, 53, 100, 0.45),
+            rgba(3, 20, 48, 0.38)
+        );
+
+    border:
+        1px solid
+        rgba(64, 157, 255, 0.2);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(18px);
+
+    box-shadow:
+        0 25px 70px
+        rgba(0,0,0,0.18);
+}
+
+
+/* =====================================================
+SKILLS SECTION
+COMPACT VERSION
+===================================================== */
+
+.skills-section {
+    position: relative;
+
+    min-height: 760px;
+
+    padding:
+        80px 5% 65px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+SKILLS TITLE
+===================================================== */
+
+.skills-title {
+    position: relative;
+
+    z-index: 20;
+
+    text-align: left;
+
+    margin-bottom: 15px;
+
+    padding-left: 1%;
+}
+
+.skills-title h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 25px
+        rgba(255,255,255,0.08);
+}
+
+.skills-title span {
+    display: block;
+
+    width: 135px;
+
+    height: 3px;
+
+    margin-top: 10px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16c9ff,
+            #087cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(0,180,255,0.65);
+}
+
+
+/* =====================================================
+SKILLS STAGE
+(clips + reserves exact height for the scaled network so
+the desktop design can shrink uniformly on every device
+without reflowing into a different layout)
+===================================================== */
+
+.skills-stage {
+    position: relative;
+
+    width: 100%;
+
+    /* Matches the network's design height (1100 x 620) as a
+       CSS-only fallback for the instant before script.js sets
+       the exact scaled height, and for the (very unlikely) case
+       JS doesn't run at all. Needed because .skills-network is
+       now position: absolute (see .skills-network comment) and
+       so no longer contributes its own height to this parent. */
+    height: 620px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+SKILLS NETWORK
+Fixed "design size" box (1100 x 620) that is scaled down
+as a whole via JS-driven transform so the exact desktop
+layout (core + connections + nodes) is preserved at every
+screen size.
+===================================================== */
+
+.skills-network {
+    /* Positioned absolutely and centered with a fixed
+       negative margin (half of the design width) instead
+       of "position: relative; margin: 0 auto" — auto-margins
+       collapse to 0 (not negative) once this 1100px-wide box
+       is wider than its container, which used to flush it to
+       the left edge. transform-origin: top center then scaled
+       from the *center of the untransformed 1100px box*, so on
+       any screen narrower than ~1100px the whole network was
+       shrinking around a point far to the right of the visible
+       stage — pushing HTML/CSS/JS/Python/SQL/Java/C cards
+       partly or fully off-screen on tablets and phones.
+       Fixing the centering this way keeps the box's center
+       pinned to the stage's center at every width, so scaling
+       around that same center always stays centered. */
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    width: 1100px;
+
+    height: 620px;
+
+    margin-left: -550px;
+
+    transform-origin: top center;
+
+    /* Fallback in case JS scaling hasn't applied yet
+       (or is unavailable) — prevents the raw 1100px-wide
+       desktop design from ever showing un-scaled/cropped
+       on a narrow screen. script.js overrides this with
+       an exact, viewport-matched scale via inline style. */
+    transform: scale(var(--skills-fallback-scale, 1));
+}
+
+
+/* =====================================================
+SVG CONNECTIONS
+===================================================== */
+
+.skill-connections {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    z-index: 1;
+
+    overflow: visible;
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+CONNECTION LINES
+===================================================== */
+
+.connection-path {
+    fill: none;
+
+    stroke: #10bfff;
+
+    stroke-width: 2.5;
+
+    stroke-linecap: round;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            rgba(0,190,255,0.9)
+        )
+        drop-shadow(
+            0 0 13px
+            rgba(0,120,255,0.5)
+        );
+
+    stroke-dasharray:
+        12 10;
+
+    animation:
+        connectionFlow
+        2s
+        linear
+        infinite;
+}
+
+@keyframes connectionFlow {
+    to {
+        stroke-dashoffset: -44;
+    }
+}
+
+
+/* =====================================================
+LIVE FLOW DOTS
+===================================================== */
+
+.flow-dot {
+    fill: #62e8ff;
+
+    filter:
+        drop-shadow(
+            0 0 5px
+            #00c8ff
+        )
+        drop-shadow(
+            0 0 14px
+            #008cff
+        );
+}
+
+
+/* =====================================================
+CENTER CORE
+===================================================== */
+
+.skills-core {
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 140px;
+
+    height: 140px;
+
+    transform:
+        translate(-50%, -50%);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #0d3e78,
+            #06234b
+        );
+
+    clip-path:
+        polygon(
+            25% 5%,
+            75% 5%,
+            100% 50%,
+            75% 95%,
+            25% 95%,
+            0% 50%
+        );
+
+    border:
+        2px solid
+        #19c8ff;
+
+    box-shadow:
+
+        0 0 12px
+        rgba(0,205,255,0.9),
+
+        0 0 30px
+        rgba(0,145,255,0.7),
+
+        0 0 70px
+        rgba(0,95,255,0.3);
+
+    z-index: 10;
+
+    animation:
+        coreGlow
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+.core-icon {
+    position: relative;
+
+    z-index: 2;
+
+    color:
+        #20caff;
+
+    font-size:
+        34px;
+
+    font-weight:
+        900;
+
+    text-shadow:
+
+        0 0 8px
+        #00d5ff,
+
+        0 0 20px
+        rgba(0,180,255,0.9);
+
+    animation:
+        iconPulse
+        2s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+CORE ANIMATION
+===================================================== */
+
+@keyframes coreGlow {
+    0%,
+    100% {
+        box-shadow:
+
+            0 0 12px
+            rgba(0,205,255,0.9),
+
+            0 0 30px
+            rgba(0,145,255,0.7),
+
+            0 0 70px
+            rgba(0,95,255,0.3);
+    }
+
+    50% {
+        box-shadow:
+
+            0 0 20px
+            rgba(0,235,255,1),
+
+            0 0 45px
+            rgba(0,170,255,0.9),
+
+            0 0 90px
+            rgba(0,100,255,0.5);
+    }
+}
+
+@keyframes iconPulse {
+    0%,
+    100% {
+        transform:
+            scale(1);
+    }
+
+    50% {
+        transform:
+            scale(1.08);
+    }
+}
+
+
+/* =====================================================
+SKILL CARDS — SMALLER
+===================================================== */
+
+.skill-node {
+    position: absolute;
+
+    width: 220px;
+
+    height: 78px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding:
+        12px 16px;
+
+    border-radius:
+        13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(6,38,75,0.92),
+            rgba(2,20,47,0.94)
+        );
+
+    border:
+        1px solid
+        rgba(15,174,255,0.7);
+
+    box-shadow:
+
+        inset 0 0 15px
+        rgba(0,120,255,0.06),
+
+        0 10px 28px
+        rgba(0,0,0,0.3),
+
+        0 0 15px
+        rgba(0,130,255,0.12);
+
+    backdrop-filter:
+        blur(12px);
+
+    z-index: 8;
+
+    transition:
+        0.35s ease;
+
+    animation:
+        nodeFloat
+        4s
+        ease-in-out
+        infinite;
+}
+
+
+/* =====================================================
+CARD HOVER
+===================================================== */
+
+.skill-node:hover {
+    border-color:
+        #24d4ff;
+
+    transform:
+        translateY(-7px)
+        scale(1.035);
+
+    box-shadow:
+
+        inset 0 0 20px
+        rgba(0,150,255,0.1),
+
+        0 14px 35px
+        rgba(0,0,0,0.4),
+
+        0 0 30px
+        rgba(0,180,255,0.4);
+}
+
+
+/* =====================================================
+ACTUAL LOGOS
+===================================================== */
+
+.skill-icon {
+    width: 44px;
+
+    height: 44px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius:
+        10px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(0,153,255,0.2),
+            rgba(0,80,170,0.12)
+        );
+
+    border:
+        1px solid
+        rgba(10,185,255,0.75);
+
+    color:
+        #20c5ff;
+
+    font-size:
+        23px;
+
+    box-shadow:
+
+        0 0 12px
+        rgba(0,165,255,0.18),
+
+        inset 0 0 12px
+        rgba(0,130,255,0.08);
+
+    transition:
+        0.35s ease;
+}
+
+
+/* =====================================================
+LOGO HOVER
+===================================================== */
+
+.skill-node:hover .skill-icon {
+    color:
+        #72eaff;
+
+    border-color:
+        #42ddff;
+
+    box-shadow:
+
+        0 0 22px
+        rgba(0,190,255,0.5),
+
+        inset 0 0 16px
+        rgba(0,150,255,0.15);
+
+    transform:
+        scale(1.08)
+        rotate(-3deg);
+}
+
+
+/* =====================================================
+C LOGO
+===================================================== */
+
+.c-logo span {
+    font-size:
+        21px;
+
+    font-weight:
+        900;
+
+    color:
+        #20c5ff;
+}
+
+
+/* =====================================================
+SKILL NAME
+===================================================== */
+
+.skill-name {
+    color:
+        #ffffff;
+
+    font-size:
+        17px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.2px;
+
+    text-shadow:
+        0 0 8px
+        rgba(255,255,255,0.08);
+}
+
+
+/* =====================================================
+POSITIONS — COMPACT
+===================================================== */
+
+.html-node {
+    left:
+        5%;
+
+    top:
+        80px;
+}
+
+.css-node {
+    right:
+        5%;
+
+    top:
+        80px;
+}
+
+.js-node {
+    left:
+        2%;
+
+    top:
+        275px;
+}
+
+.python-node {
+    right:
+        2%;
+
+    top:
+        275px;
+}
+
+.java-node {
+    left:
+        5%;
+
+    bottom:
+        55px;
+}
+
+.sql-node {
+    right:
+        5%;
+
+    bottom:
+        55px;
+}
+
+.c-node {
+    left:
+        50%;
+
+    bottom:
+        0;
+
+    width:
+        220px;
+
+    height:
+        78px;
+
+    transform:
+        translateX(-50%);
+}
+
+.c-node:hover {
+    transform:
+        translateX(-50%)
+        translateY(-7px)
+        scale(1.035);
+}
+
+
+/* =====================================================
+FLOATING PARTICLES
+===================================================== */
+
+.skills-network::before,
+.skills-network::after {
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    border-radius:
+        50%;
+
+    background:
+        #5beaff;
+
+    box-shadow:
+
+        0 0 8px
+        #00d9ff,
+
+        0 0 22px
+        #008cff,
+
+        0 0 45px
+        #0066ff;
+
+    z-index:
+        3;
+
+    pointer-events:
+        none;
+
+    animation:
+        particleMove
+        5s
+        linear
+        infinite;
+}
+
+.skills-network::before {
+    left:
+        31%;
+
+    top:
+        30%;
+}
+
+.skills-network::after {
+    right:
+        31%;
+
+    top:
+        67%;
+
+    animation-delay:
+        2.5s;
+}
+
+@keyframes particleMove {
+    0% {
+        opacity:
+            0;
+
+        transform:
+            scale(0.5)
+            translate(0,0);
+    }
+
+    15% {
+        opacity:
+            1;
+    }
+
+    50% {
+        opacity:
+            1;
+
+        transform:
+            scale(1.4)
+            translate(70px,-25px);
+    }
+
+    85% {
+        opacity:
+            0.7;
+    }
+
+    100% {
+        opacity:
+            0;
+
+        transform:
+            scale(0.5)
+            translate(150px,20px);
+    }
+}
+
+@keyframes nodeFloat {
+    0%,
+    100% {
+        margin-top:
+            0;
+    }
+
+    50% {
+        margin-top:
+            -6px;
+    }
+}
+
+
+/* =====================================================
+PROJECTS
+===================================================== */
+
+.projects-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 22px;
+}
+
+.project-card {
+    padding: 30px;
+
+    min-height: 280px;
+
+    transition:
+        0.3s ease;
+}
+
+.project-number {
+    color: #269fff;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 25px;
+}
+
+.project-card h3 {
+    font-size: 24px;
+
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #8ea5c6;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+.project-tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+}
+
+.project-tags span {
+    padding:
+        7px 11px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(0, 125, 255, 0.12);
+
+    color: #4ab4ff;
+
+    font-size: 12px;
+}
+
+
+/* =====================================================
+   EDUCATION SECTION
+===================================================== */
+
+.education-section {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    padding:
+        90px 5% 100px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   EDUCATION TITLE
+===================================================== */
+
+.education-title {
+
+    position: relative;
+
+    z-index: 10;
+
+    text-align: left;
+
+    margin-bottom: 55px;
+
+    padding-left: 1%;
+}
+
+
+.education-title h2 {
+
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 46px;
+
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,0.08);
+}
+
+
+.education-title span {
+
+    display: block;
+
+    width: 155px;
+
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16c9ff,
+            #087cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0,180,255,0.65);
+
+    animation:
+        educationTitleGlow
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes educationTitleGlow {
+
+    0%,
+    100% {
+
+        opacity: 0.65;
+
+        box-shadow:
+            0 0 10px
+            rgba(0,180,255,0.4);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        box-shadow:
+            0 0 25px
+            rgba(0,200,255,0.85);
+    }
+}
+
+
+/* =====================================================
+   TIMELINE AREA
+===================================================== */
+
+.education-timeline {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    margin:
+        0 auto;
+
+    padding:
+        5px 0 30px;
+}
+
+
+/* =====================================================
+   VERTICAL TIMELINE
+===================================================== */
+
+.education-line {
+
+    position: absolute;
+
+    left: 28px;
+
+    top: 20px;
+
+    bottom: 20px;
+
+    width: 3px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            #078cff 8%,
+            #20caff 50%,
+            #087cff 92%,
+            transparent
+        );
+
+    box-shadow:
+
+        0 0 8px
+        rgba(0,190,255,0.9),
+
+        0 0 25px
+        rgba(0,120,255,0.6),
+
+        0 0 60px
+        rgba(0,100,255,0.25);
+
+    animation:
+        timelineGlow
+        3s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes timelineGlow {
+
+    0%,
+    100% {
+
+        opacity: 0.65;
+
+        filter:
+            brightness(0.9);
+    }
+
+    50% {
+
+        opacity: 1;
+
+        filter:
+            brightness(1.35);
+    }
+}
+
+
+/* =====================================================
+   EDUCATION ITEM
+===================================================== */
+
+.education-item {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    min-height: 190px;
+
+    padding-left: 70px;
+
+    margin-bottom: 65px;
+
+    opacity: 0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity 0.8s ease,
+        transform 0.8s ease;
+}
+
+
+.education-item.show {
+
+    opacity: 1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =====================================================
+   EDUCATION DOT
+===================================================== */
+
+.education-dot {
+
+    position: absolute;
+
+    left: 13px;
+
+    top: 22px;
+
+    width: 32px;
+
+    height: 32px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background:
+        rgba(10,80,170,0.75);
+
+    border:
+        2px solid
+        #38b9ff;
+
+    box-shadow:
+
+        0 0 10px
+        rgba(0,190,255,0.9),
+
+        0 0 25px
+        rgba(0,130,255,0.75),
+
+        0 0 50px
+        rgba(0,100,255,0.35);
+
+    z-index: 5;
+
+    animation:
+        educationDotPulse
+        2.5s
+        ease-in-out
+        infinite;
+}
+
+
+.dot-core {
+
+    width: 10px;
+
+    height: 10px;
+
+    border-radius: 50%;
+
+    background:
+        #6eeaff;
+
+    box-shadow:
+        0 0 10px #00d5ff,
+        0 0 22px #008cff;
+}
+
+
+@keyframes educationDotPulse {
+
+    0%,
+    100% {
+
+        transform:
+            scale(1);
+
+        box-shadow:
+
+            0 0 10px
+            rgba(0,190,255,0.9),
+
+            0 0 25px
+            rgba(0,130,255,0.75),
+
+            0 0 50px
+            rgba(0,100,255,0.35);
+    }
+
+    50% {
+
+        transform:
+            scale(1.12);
+
+        box-shadow:
+
+            0 0 15px
+            rgba(0,220,255,1),
+
+            0 0 35px
+            rgba(0,150,255,0.9),
+
+            0 0 65px
+            rgba(0,100,255,0.5);
+    }
+}
+
+
+/* =====================================================
+   EDUCATION CARD
+===================================================== */
+
+.education-card {
+
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        28px 32px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7,42,78,0.82),
+            rgba(3,20,48,0.92)
+        );
+
+    border:
+        1px solid
+        rgba(20,174,255,0.48);
+
+    backdrop-filter:
+        blur(15px);
+
+    -webkit-backdrop-filter:
+        blur(15px);
+
+    box-shadow:
+
+        inset 0 0 25px
+        rgba(0,120,255,0.04),
+
+        0 15px 40px
+        rgba(0,0,0,0.28),
+
+        0 0 18px
+        rgba(0,130,255,0.08);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =====================================================
+   CARD LIGHT SWEEP
+===================================================== */
+
+.education-card::before {
+
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    left: -120%;
+
+    width: 80%;
+
+    height: 100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(80,210,255,0.08),
+            transparent
+        );
+
+    transform:
+        skewX(-20deg);
+
+    transition:
+        left 0.8s ease;
+
+    pointer-events: none;
+}
+
+
+.education-card:hover::before {
+
+    left: 140%;
+}
+
+
+/* =====================================================
+   CARD HOVER
+===================================================== */
+
+.education-card:hover {
+
+    transform:
+        translateY(-7px)
+        scale(1.015);
+
+    border-color:
+        #21c7ff;
+
+    box-shadow:
+
+        inset 0 0 30px
+        rgba(0,140,255,0.08),
+
+        0 20px 45px
+        rgba(0,0,0,0.38),
+
+        0 0 35px
+        rgba(0,175,255,0.25);
+}
+
+
+/* =====================================================
+   YEAR
+===================================================== */
+
+.education-year {
+
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color:
+        #29aaff;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+
+    letter-spacing:
+        0.5px;
+
+    text-shadow:
+        0 0 10px
+        rgba(0,160,255,0.35);
+}
+
+
+/* =====================================================
+   DEGREE TITLE
+===================================================== */
+
+.education-card h3 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #ffffff;
+
+    font-size:
+        21px;
+
+    font-weight:
+        700;
+
+    line-height:
+        1.4;
+
+    text-shadow:
+        0 0 12px
+        rgba(255,255,255,0.05);
+}
+
+
+/* =====================================================
+   UNIVERSITY / BOARD
+===================================================== */
+
+.education-institute {
+
+    margin:
+        0 0 7px;
+
+    color:
+        #c2d4ec;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   COLLEGE / SCHOOL
+===================================================== */
+
+.education-college {
+
+    margin:
+        0 0 10px;
+
+    color:
+        #7fa3c9;
+
+    font-size:
+        14px;
+
+    line-height:
+        1.6;
+}
+
+
+/* =====================================================
+   RESULT
+===================================================== */
+
+.education-result {
+
+    margin:
+        0;
+
+    color:
+        #91adcc;
+
+    font-size:
+        13px;
+
+    line-height:
+        1.6;
+}
+
+
+.education-result strong {
+
+    color:
+        #37c4ff;
+
+    font-weight:
+        700;
+
+    text-shadow:
+        0 0 10px
+        rgba(0,180,255,0.4);
+}
+
+
+/* =====================================================
+   CONNECTING HORIZONTAL GLOW
+===================================================== */
+
+.education-item::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 28px;
+
+    top: 37px;
+
+    width: 42px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #13bfff,
+            rgba(0,180,255,0.1)
+        );
+
+    box-shadow:
+        0 0 8px
+        rgba(0,190,255,0.8);
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   FLOWING LIGHT ON TIMELINE
+===================================================== */
+
+.education-line::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: -4px;
+
+    top: -40px;
+
+    width: 11px;
+
+    height: 70px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            #8ff3ff 0%,
+            #16caff 30%,
+            transparent 70%
+        );
+
+    filter:
+        blur(1px);
+
+    box-shadow:
+        0 0 15px #00d5ff,
+        0 0 30px #008cff;
+
+    animation:
+        lineLightFlow
+        3.5s
+        linear
+        infinite;
+}
+
+
+@keyframes lineLightFlow {
+
+    0% {
+
+        transform:
+            translateY(0);
+
+        opacity:
+            0;
+    }
+
+    10% {
+
+        opacity:
+            1;
+    }
+
+    90% {
+
+        opacity:
+            1;
+    }
+
+    100% {
+
+        transform:
+            translateY(700px);
+
+        opacity:
+            0;
+    }
+}
+
+
+/* =====================================================
+   FLOATING PARTICLES
+===================================================== */
+
+.education-section::before,
+.education-section::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 4px;
+
+    height: 4px;
+
+    border-radius: 50%;
+
+    background:
+        #48dcff;
+
+    box-shadow:
+
+        0 0 8px
+        #00d9ff,
+
+        0 0 20px
+        #008cff,
+
+        0 0 40px
+        #0066ff;
+
+    pointer-events:
+        none;
+
+    opacity:
+        0.8;
+
+    animation:
+        educationParticle
+        6s
+        linear
+        infinite;
+}
+
+
+.education-section::before {
+
+    left:
+        18%;
+
+    top:
+        35%;
+}
+
+
+.education-section::after {
+
+    right:
+        15%;
+
+    top:
+        65%;
+
+    animation-delay:
+        2.5s;
+}
+
+
+@keyframes educationParticle {
+
+    0% {
+
+        transform:
+            translate(0,0)
+            scale(0.5);
+
+        opacity:
+            0;
+    }
+
+    20% {
+
+        opacity:
+            1;
+    }
+
+    50% {
+
+        transform:
+            translate(80px,-45px)
+            scale(1.3);
+
+        opacity:
+            1;
+    }
+
+    80% {
+
+        opacity:
+            0.6;
+    }
+
+    100% {
+
+        transform:
+            translate(150px,30px)
+            scale(0.5);
+
+        opacity:
+            0;
+    }
+}
+
+
+/* =====================================================
+   CERTIFICATES SECTION
+===================================================== */
+
+.certificates-section {
+    position: relative;
+    width: 100%;
+    min-height: 100vh;
+
+    padding: 35px 2.5% 80px;
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CERTIFICATES TITLE
+===================================================== */
+
+.certificates-title {
+    position: relative;
+    z-index: 5;
+
+    margin-bottom: 35px;
+    padding-left: 1%;
+}
+
+.certificates-title h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 52px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+}
+
+.certificates-title span {
+    display: block;
+
+    width: 225px;
+    height: 5px;
+
+    margin-top: 18px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16caff,
+            #006cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 12px rgba(0, 190, 255, 0.8),
+        0 0 25px rgba(0, 100, 255, 0.3);
+}
+
+
+/* =====================================================
+   CERTIFICATES CONTAINER
+===================================================== */
+
+.certificates-container {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 34px;
+
+    align-items: center;
+    justify-items: center;
+}
+
+
+/* =====================================================
+   CERTIFICATE BOX
+===================================================== */
+
+.certificate-item {
+    position: relative;
+
+    width: 100%;
+
+    padding: 9px;
+
+    border-radius: 21px;
+
+    background:
+        rgba(5, 25, 55, 0.35);
+
+    border:
+        1px solid
+        rgba(15, 190, 255, 0.45);
+
+    box-shadow:
+        0 0 20px
+        rgba(0, 130, 255, 0.18),
+
+        inset 0 0 20px
+        rgba(0, 120, 255, 0.04);
+
+    overflow: hidden;
+
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+
+/* =====================================================
+   CERTIFICATE IMAGE
+===================================================== */
+
+.certificate-item img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    border-radius: 13px;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.4s ease;
+}
+
+
+/* =====================================================
+   HOVER EFFECT
+===================================================== */
+
+.certificate-item:hover {
+    transform: translateY(-8px);
+
+    border-color:
+        rgba(20, 205, 255, 0.95);
+
+    box-shadow:
+        0 0 28px
+        rgba(0, 175, 255, 0.35),
+
+        0 0 60px
+        rgba(0, 100, 255, 0.18),
+
+        inset 0 0 20px
+        rgba(0, 160, 255, 0.08);
+}
+
+.certificate-item:hover img {
+    transform: scale(1.015);
+}
+
+
+/* =====================================================
+   TOP BLUE GLOW
+===================================================== */
+
+.certificate-item::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 10%;
+
+    width: 80%;
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #16caff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 14px
+        rgba(0, 200, 255, 0.9);
+}
+
+
+/* =====================================================
+   3RD CERTIFICATE - SMALLER FULL IMAGE
+===================================================== */
+
+.certificates-container .certificate-item:nth-child(3) {
+    width: 80%;
+}
+
+
+/* =====================================================
+   CONTACT US SECTION
+===================================================== */
+
+.contact-section {
+    position: relative;
+    min-height: 100vh;
+    padding: 90px 5% 100px;
+    padding-top: 0px;
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   CONTACT TITLE
+===================================================== */
+
+.contact-title {
+    position: relative;
+    z-index: 10;
+
+    text-align: left;
+
+    padding-left: 1%;
+    margin-bottom: 45px;
+}
+
+.contact-title h2 {
+    margin: 0;
+
+    color: #ffffff;
+
+    font-size: 46px;
+    font-weight: 800;
+
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,255,255,0.08);
+}
+
+.contact-title span {
+    display: block;
+
+    width: 155px;
+    height: 4px;
+
+    margin-top: 12px;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #16c9ff,
+            #087cff,
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0,180,255,0.55);
+}
+
+
+/* =====================================================
+   MAIN CONTACT BOX
+===================================================== */
+
+.contact-wrapper {
+    position: relative;
+
+    width: 100%;
+    max-width: 1100px;
+
+    min-height: 520px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        0.8fr 1.5fr;
+
+    align-items: center;
+
+    gap: 40px;
+
+    padding: 45px;
+
+    border-radius: 30px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(8,55,110,0.48),
+            rgba(3,18,55,0.55)
+        );
+
+    border:
+        1px solid
+        rgba(30,180,255,0.45);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,150,255,0.12),
+
+        0 25px 80px
+        rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+}
+
+
+/* =====================================================
+   STATIC BORDER
+===================================================== */
+
+.contact-wrapper::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 30px;
+
+    border:
+        1px solid
+        rgba(0,190,255,0.12);
+
+    pointer-events: none;
+}
+
+
+/* =====================================================
+   CONTACT VISUAL
+===================================================== */
+
+.contact-visual {
+    position: relative;
+
+    height: 380px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =====================================================
+   PAPER PLANE
+===================================================== */
+
+.contact-plane {
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    color: #39cfff;
+
+    font-size: 62px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,175,255,0.20),
+            rgba(0,80,180,0.08),
+            transparent 70%
+        );
+
+    text-shadow:
+        0 0 10px #00c8ff,
+        0 0 35px #008cff,
+        0 0 70px rgba(0,120,255,0.7);
+
+    z-index: 5;
+
+    animation:
+        contactPlaneFloat
+        3.5s
+        ease-in-out
+        infinite;
+}
+
+
+@keyframes contactPlaneFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0)
+            rotate(-3deg);
+    }
+
+    50% {
+        transform:
+            translateY(-8px)
+            rotate(3deg);
+    }
+}
+
+
+/* =====================================================
+   ORBITS
+===================================================== */
+
+.contact-orbit {
+    position: absolute;
+
+    border:
+        1px dashed
+        rgba(25,185,255,0.40);
+
+    border-radius: 50%;
+
+    pointer-events: none;
+
+    animation:
+        orbitMove
+        10s
+        linear
+        infinite;
+}
+
+.orbit-one {
+    width: 260px;
+    height: 150px;
+
+    animation-name:
+        orbitOneMove;
+}
+
+.orbit-two {
+    width: 330px;
+    height: 200px;
+
+    opacity: 0.4;
+
+    animation-name:
+        orbitTwoMove;
+
+    animation-duration:
+        13s;
+
+    animation-direction:
+        reverse;
+}
+
+
+/* Orbit 1 */
+
+@keyframes orbitOneMove {
+
+    from {
+        transform:
+            rotate(-25deg);
+    }
+
+    to {
+        transform:
+            rotate(335deg);
+    }
+}
+
+
+/* Orbit 2 */
+
+@keyframes orbitTwoMove {
+
+    from {
+        transform:
+            rotate(25deg);
+    }
+
+    to {
+        transform:
+            rotate(385deg);
+    }
+}
+
+
+/* =====================================================
+   FORM BOX
+===================================================== */
+
+.contact-form-box {
+    width: 100%;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.contact-input {
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+/* Normal icons */
+
+.contact-input i {
+    position: absolute;
+
+    left: 22px;
+
+    color: #6fbcff;
+
+    font-size: 21px;
+
+    z-index: 2;
+}
+
+
+/* =====================================================
+   MESSAGE ICON
+   FIXED TO TOP-LEFT BESIDE "YOUR MESSAGE"
+===================================================== */
+
+.message-input {
+    position: relative;
+
+    align-items: flex-start;
+}
+
+.message-input i {
+    position: absolute;
+
+    top: 22px;
+    left: 22px;
+
+    color: #6fbcff;
+
+    font-size: 21px;
+
+    z-index: 2;
+
+    transform: none;
+}
+
+
+/* =====================================================
+   INPUT + TEXTAREA
+===================================================== */
+
+.contact-input input,
+.contact-input textarea {
+    width: 100%;
+
+    border:
+        1px solid
+        rgba(74,135,255,0.45);
+
+    outline: none;
+
+    color: #ffffff;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        rgba(2,18,55,0.65);
+
+    border-radius: 17px;
+
+    backdrop-filter:
+        blur(10px);
+
+    transition: none;
+}
+
+
+/* =====================================================
+   NAME + EMAIL
+===================================================== */
+
+.contact-input input {
+    height: 78px;
+
+    padding:
+        0 25px
+        0 65px;
+
+    font-size: 17px;
+}
+
+
+/* =====================================================
+   MESSAGE
+===================================================== */
+
+.contact-input textarea {
+    height: 170px;
+
+    padding:
+        22px
+        25px
+        22px
+        65px;
+
+    font-size: 17px;
+
+    resize: vertical;
+}
+
+
+/* Placeholder */
+
+.contact-input input::placeholder,
+.contact-input textarea::placeholder {
+    color: #8299c8;
+}
+
+
+/* =====================================================
+   INPUT FOCUS
+===================================================== */
+
+.contact-input input:focus,
+.contact-input textarea:focus {
+    border-color:
+        #22baff;
+
+    box-shadow:
+        0 0 18px
+        rgba(0,180,255,0.16),
+
+        inset 0 0 20px
+        rgba(0,100,255,0.05);
+
+    transform: none;
+}
+
+
+/* Icon focus effect */
+
+.contact-input:focus-within i {
+    color:
+        #48d7ff;
+
+    text-shadow:
+        0 0 12px
+        #00bfff;
+
+    transform: none;
+}
+
+
+/* Message icon specifically stays fixed */
+
+.message-input:focus-within i {
+    transform: none;
+
+    top: 22px;
+    left: 22px;
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.contact-send-btn {
+    position: relative;
+
+    width: 230px;
+    height: 62px;
+
+    margin: 8px auto 0;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    border: none;
+
+    border-radius: 15px;
+
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0da9ff,
+            #087cff,
+            #6b24ff
+        );
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,130,255,0.28),
+
+        0 0 20px
+        rgba(0,170,255,0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.contact-send-btn i {
+    font-size: 19px;
+}
+
+
+/* No shine animation */
+
+.contact-send-btn::before {
+    display: none;
+}
+
+
+/* Hover animation */
+
+.contact-send-btn:hover {
+    transform:
+        translateY(-5px)
+        scale(1.02);
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,140,255,0.40),
+
+        0 0 35px
+        rgba(80,80,255,0.30);
+}
+
+.contact-send-btn:active {
+    transform:
+        translateY(-1px)
+        scale(0.98);
+}
+
+
+/* =====================================================
+   CONTACT STATUS
+===================================================== */
+
+.contact-status {
+    margin-top: 18px;
+
+    text-align: center;
+
+    font-size: 14px;
+
+    min-height: 20px;
+}
+
+.contact-status.success {
+    color: #48e6b0;
+}
+
+.contact-status.error {
+    color: #ff6b7a;
+}
+
+
+/* =====================================================
+   CONNECT WITH ME
+===================================================== */
+
+.connect-section {
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 65px auto 0;
+}
+
+
+/* Heading */
+
+.connect-heading {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 25px;
+
+    margin-bottom: 35px;
+}
+
+.connect-heading span {
+    flex: 1;
+
+    max-width: 180px;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #18bfff
+        );
+
+    box-shadow:
+        0 0 10px
+        rgba(0,180,255,0.45);
+}
+
+.connect-heading span:last-child {
+    background:
+        linear-gradient(
+            90deg,
+            #18bfff,
+            transparent
+        );
+}
+
+.connect-heading h3 {
+    margin: 0;
+
+    color: #d9e9ff;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    letter-spacing: 3px;
+}
+
+
+/* =====================================================
+   CONNECT BUTTONS
+===================================================== */
+
+.connect-buttons {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 18px;
+}
+
+.connect-btn {
+    min-height: 75px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    padding: 0 20px;
+
+    border-radius: 16px;
+
+    color: #e6f3ff;
+
+    text-decoration: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(7,43,90,0.75),
+            rgba(3,20,52,0.8)
+        );
+
+    border:
+        1px solid
+        rgba(65,145,255,0.45);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.25);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.connect-btn > i:first-child {
+    width: 35px;
+
+    font-size: 28px;
+
+    text-align: center;
+}
+
+.connect-btn > i:last-child {
+    margin-left: auto;
+
+    font-size: 16px;
+
+    color: #9fc6ff;
+}
+
+.connect-btn span {
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+/* Hover animation */
+
+.connect-btn:hover {
+    transform:
+        translateY(-6px);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0,150,255,0.25),
+
+        0 0 20px
+        rgba(0,170,255,0.12);
+
+    border-color:
+        #27baff;
+}
+
+.linkedin:hover {
+    border-color:
+        #0aafff;
+}
+
+.github:hover {
+    border-color:
+        #ffffff;
+}
+
+.leetcode:hover {
+    border-color:
+        #ffb43c;
+}
+
+.email:hover {
+    border-color:
+        #9a5cff;
+}
+
+
+/* =====================================================
+FOOTER
+===================================================== */
+
+footer {
+    padding:
+        30px;
+
+    text-align: center;
+
+    color: #7186a8;
+
+    border-top:
+        1px solid
+        rgba(60, 140, 255, 0.12);
+}
+
+
+/* =====================================================================
+   =====================================================================
+   RESPONSIVE BREAKPOINTS
+   1200px -> large tablet / small laptop
+   1000px -> tablet landscape / nav switches to mobile menu
+    900px -> tablet portrait
+    700px -> large phones
+    600px -> phones
+    480px -> small phones
+    380px -> very small phones
+   =====================================================================
+   ===================================================================== */
+
+
+/* =====================================================
+RESPONSIVE — 1200px
+===================================================== */
+
+@media (max-width: 1200px) {
+
+    .hero {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
+    .nav-menu {
+        gap: 28px;
+    }
+}
+
+
+/* =====================================================
+RESPONSIVE — 1000px
+   (nav collapses into hamburger menu)
+===================================================== */
+
+@media (max-width: 1000px) {
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        height: 72px;
+
+        padding: 0 20px;
+
+        background: rgba(2, 10, 28, 0.55);
+
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+
+        border-bottom: 1px solid rgba(40, 150, 255, 0.15);
+    }
+
+    .logo-mark {
+        display: inline-flex;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+
+        top: 72px;
+        right: 0;
+
+        width: min(300px, 78vw);
+
+        height: calc(100vh - 72px);
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: flex-start;
+
+        gap: 6px;
+
+        padding: 28px 26px;
+
+        background: rgba(3, 14, 38, 0.97);
+
+        border-left: 1px solid rgba(40, 150, 255, 0.22);
+
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+
+        transform: translateX(100%);
+
+        transition: transform 0.35s ease;
+
+        z-index: 1050;
+
+        overflow-y: auto;
+    }
+
+    .nav-menu.open {
+        transform: translateX(0);
+    }
+
+    .nav-link {
+        width: 100%;
+
+        padding: 16px 6px;
+
+        font-size: 18px;
+
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .nav-link.active {
+        color: #35aaff;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        grid-template-columns: 1fr;
+
+        text-align: center;
+
+        padding-top: 120px;
+
+        gap: 45px;
+    }
+
+    .hero-content {
+        margin: auto;
+    }
+
+    .name {
+        justify-content: center;
+    }
+
+    .typing-line {
+        justify-content: center;
+    }
+
+    .hero-description {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .availability {
+        margin-left: auto;
+
+        margin-right: auto;
+    }
+
+    .hero-visual {
+        min-height: unset;
+
+        order: -1;
+    }
+
+    .photo-wrapper {
+        width: min(340px, 62vw);
+
+        height: min(475px, 87vw);
+    }
+
+
+    /* ---------- SKILLS ---------- */
+    /* Layout itself is untouched here — the .skills-network
+       box keeps its fixed 1100x620 desktop design and is
+       scaled down as a whole via JS (see script.js), so the
+       exact desktop look is preserved on every device. */
+
+    .skills-section {
+        padding: 75px 25px;
+    }
+
+    .skills-network {
+        --skills-fallback-scale: 0.85;
+    }
+
+    .skills-stage {
+        height: 527px;
+    }
+
+
+    /* ---------- CERTIFICATES ---------- */
+
+    .certificates-section {
+        padding: 70px 4% 90px;
+    }
+
+    .certificates-title {
+        margin-bottom: 45px;
+    }
+
+    .certificates-title h2 {
+        font-size: 44px;
+    }
+
+    .certificates-container {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 25px;
+    }
+
+    .certificates-container .certificate-item:nth-child(3) {
+        grid-column: 1 / -1;
+
+        width: min(80%, 420px);
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-section {
+        padding: 80px 25px 90px;
+    }
+
+    .contact-wrapper {
+        grid-template-columns: 1fr;
+
+        padding: 35px;
+
+        gap: 10px;
+    }
+
+    .contact-visual {
+        height: 260px;
+    }
+
+    .contact-plane {
+        width: 120px;
+
+        height: 120px;
+
+        font-size: 50px;
+    }
+
+    .connect-buttons {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =====================================================
+RESPONSIVE — 900px (education card padding)
+===================================================== */
+
+@media (max-width: 900px) {
+
+    .education-section {
+        padding: 80px 25px 90px;
+    }
+
+    .education-title {
+        padding-left: 0;
+    }
+
+    .education-title h2 {
+        font-size: 42px;
+    }
+
+    .education-timeline {
+        max-width: 760px;
+    }
+
+    .education-card {
+        padding: 25px 27px;
+    }
+
+    .education-card h3 {
+        font-size: 19px;
+    }
+}
+
+
+/* =====================================================
+RESPONSIVE — 700px
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .hero {
+        padding:
+            100px
+            20px
+            30px;
+    }
+
+    .hello {
+        font-size:
+            25px;
+    }
+
+    .hero-description {
+        font-size:
+            15px;
+    }
+
+    .hero-visual {
+        min-height:
+            auto;
+    }
+
+    .photo-wrapper {
+        width: min(280px, 68vw);
+
+        height: min(390px, 95vw);
+    }
+
+    .section {
+        padding:
+            80px 20px;
+    }
+
+    .section-heading h2 {
+        font-size:
+            35px;
+    }
+
+
+    /* Small screen skills */
+    /* .skills-network keeps its exact desktop design and is
+       scaled down as one piece via JS — no per-element
+       overrides needed here anymore. */
+
+    .skills-section {
+        min-height:
+            auto;
+
+        padding:
+            65px 18px;
+    }
+
+    .skills-title h2 {
+        font-size:
+            38px;
+    }
+
+    .skills-network {
+        --skills-fallback-scale: 0.6;
+    }
+
+    .skills-stage {
+        height: 372px;
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE - MOBILE (education) — 600px
+===================================================== */
+
+@media (max-width: 600px) {
+
+    /* ---------- SKILLS ---------- */
+
+    .skills-network {
+        --skills-fallback-scale: 0.5;
+    }
+
+    .skills-stage {
+        height: 310px;
+    }
+
+
+    /* ---------- NAVBAR ---------- */
+
+    .navbar {
+        height: 64px;
+
+        padding: 0 16px;
+    }
+
+    .logo-mark {
+        font-size: 17px;
+
+        padding: 6px 11px;
+    }
+
+    .nav-menu {
+        top: 64px;
+
+        height: calc(100vh - 64px);
+
+        width: 100vw;
+    }
+
+
+    /* ---------- HERO ---------- */
+
+    .hero {
+        padding-top: 92px;
+    }
+
+    .welcome {
+        font-size: 12px;
+
+        letter-spacing: 3px;
+    }
+
+    .name {
+        letter-spacing: -2px;
+
+        margin-bottom: 18px;
+    }
+
+    .btn {
+        padding: 13px 20px;
+
+        font-size: 14px;
+    }
+
+
+    /* ---------- EDUCATION ---------- */
+
+    .education-section {
+
+        min-height:
+            auto;
+
+        padding:
+            70px 18px 80px;
+    }
+
+    .education-title {
+
+        margin-bottom:
+            45px;
+
+        padding-left:
+            0;
+    }
+
+    .education-title h2 {
+
+        font-size:
+            36px;
+    }
+
+    .education-title span {
+
+        width:
+            125px;
+
+        height:
+            3px;
+    }
+
+    .education-timeline {
+
+        width:
+            100%;
+
+        padding:
+            0;
+    }
+
+    .education-line {
+
+        left:
+            18px;
+
+        top:
+            15px;
+
+        bottom:
+            15px;
+    }
+
+    .education-item {
+
+        min-height:
+            auto;
+
+        padding-left:
+            50px;
+
+        margin-bottom:
+            35px;
+    }
+
+    .education-item::before {
+
+        left:
+            18px;
+
+        width:
+            32px;
+    }
+
+    .education-dot {
+
+        left:
+            4px;
+
+        top:
+            20px;
+
+        width:
+            28px;
+
+        height:
+            28px;
+    }
+
+    .dot-core {
+
+        width:
+            8px;
+
+        height:
+            8px;
+    }
+
+    .education-card {
+
+        padding:
+            22px 20px;
+
+        border-radius:
+            15px;
+    }
+
+    .education-year {
+
+        font-size:
+            12px;
+
+        margin-bottom:
+            9px;
+    }
+
+    .education-card h3 {
+
+        font-size:
+            17px;
+
+        line-height:
+            1.45;
+    }
+
+    .education-institute,
+    .education-college {
+
+        font-size:
+            12px;
+
+        line-height:
+            1.55;
+    }
+
+    .education-result {
+
+        font-size:
+            12px;
+    }
+
+
+    /* ---------- CERTIFICATES ---------- */
+
+    .certificates-section {
+        padding:
+            65px 16px 80px;
+    }
+
+    .certificates-title {
+        margin-bottom: 30px;
+        padding-left: 0;
+    }
+
+    .certificates-title h2 {
+        font-size: 34px;
+    }
+
+    .certificates-title span {
+        width: 150px;
+        height: 4px;
+    }
+
+    .certificates-container {
+        grid-template-columns:
+            1fr;
+
+        gap: 22px;
+    }
+
+    .certificate-item {
+        padding: 7px;
+        border-radius: 17px;
+    }
+
+    .certificate-item img {
+        border-radius: 11px;
+    }
+
+    .certificates-container .certificate-item:nth-child(3) {
+        grid-column: auto;
+
+        width: 100%;
+    }
+
+
+    /* ---------- CONTACT ---------- */
+
+    .contact-title {
+        margin-bottom:
+            30px;
+    }
+
+    .contact-title h2 {
+        font-size:
+            32px;
+    }
+
+    .contact-title span {
+        width:
+            120px;
+    }
+
+    .contact-wrapper {
+        padding:
+            22px 16px;
+
+        border-radius:
+            20px;
+    }
+
+    .contact-visual {
+        height:
+            200px;
+    }
+
+    .contact-plane {
+        width:
+            95px;
+
+        height:
+            95px;
+
+        font-size:
+            40px;
+    }
+
+    .orbit-one {
+        width:
+            200px;
+
+        height:
+            120px;
+    }
+
+    .orbit-two {
+        width:
+            260px;
+
+        height:
+            160px;
+    }
+
+    .contact-input input {
+        height:
+            60px;
+
+        font-size:
+            14px;
+
+        padding:
+            0 20px 0 55px;
+    }
+
+    .contact-input textarea {
+        height:
+            140px;
+
+        font-size:
+            14px;
+
+        padding:
+            18px 20px 18px 55px;
+    }
+
+    .contact-input i {
+        left: 18px;
+
+        font-size: 18px;
+    }
+
+    .message-input i {
+        left: 18px;
+    }
+
+    .contact-send-btn {
+        width:
+            100%;
+
+        height: 56px;
+
+        font-size: 15px;
+    }
+
+    .connect-section {
+        margin-top:
+            45px;
+    }
+
+    .connect-heading {
+        gap:
+            10px;
+    }
+
+    .connect-heading span {
+        width:
+            45px;
+    }
+
+    .connect-heading h3 {
+        font-size:
+            16px;
+
+        letter-spacing:
+            1px;
+
+        white-space:
+            nowrap;
+    }
+
+    .connect-buttons {
+        grid-template-columns:
+            repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .connect-btn {
+        min-height:
+            64px;
+
+        padding: 0 12px;
+
+        gap: 8px;
+    }
+
+    .connect-btn span {
+        font-size: 14px;
+    }
+
+    .connect-btn > i:first-child {
+        width: 26px;
+
+        font-size: 20px;
+    }
+
+    .connect-btn > i:last-child {
+        font-size: 13px;
+    }
+
+
+    /* ---------- FOOTER ---------- */
+
+    footer {
+        padding: 24px 16px;
+
+        font-size: 13px;
+    }
+}
+
+
+/* =====================================================
+RESPONSIVE — 480px (small phones)
+===================================================== */
+
+@media (max-width: 480px) {
+
+    .hero {
+        padding: 88px 16px 25px;
+    }
+
+    .availability {
+        font-size: 12px;
+
+        padding: 8px 14px;
+    }
+
+    .hello {
+        font-size: 21px;
+    }
+
+    .typing-line {
+        font-size: 17px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+
+        line-height: 1.75;
+    }
+
+    .photo-wrapper {
+        width: min(240px, 66vw);
+
+        height: min(335px, 92vw);
+    }
+
+    .skills-title h2,
+    .education-title h2 {
+        font-size: 30px;
+    }
+
+    .certificates-title h2 {
+        font-size: 28px;
+    }
+
+    .education-card h3 {
+        font-size: 16px;
+    }
+
+    .skills-network {
+        --skills-fallback-scale: 0.4;
+    }
+
+    .skills-stage {
+        height: 248px;
+    }
+}
+
+
+/* =====================================================
+RESPONSIVE — 380px (very small phones)
+===================================================== */
+
+@media (max-width: 380px) {
+
+    .name {
+        font-size: clamp(38px, 12vw, 48px);
+    }
+
+    .hero-buttons {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .photo-wrapper {
+        width: min(210px, 64vw);
+
+        height: min(295px, 90vw);
+    }
+
+    .contact-plane {
+        width: 82px;
+
+        height: 82px;
+
+        font-size: 34px;
+    }
+
+    .skills-network {
+        --skills-fallback-scale: 0.32;
+    }
+
+    .skills-stage {
+        height: 198px;
+    }
+}
+
+
+/* =====================================================
+REDUCED MOTION
+===================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        animation-duration: 0.01ms !important;
+
+        animation-iteration-count: 1 !important;
+
+        transition-duration: 0.01ms !important;
+
+        scroll-behavior: auto !important;
+    }
+}
