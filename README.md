@@ -1,40 +1,49 @@
-<h1 align="center">Pratul Shit | Portfolio</h1>
+# 🌐 Pratul Shit — Portfolio
 
-<p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=3B82F6&center=true&vCenter=true&width=600&lines=CSE+Student;Web+Developer;Problem+Solver;Tech+Enthusiast" alt="Typing SVG" />
-</p>
+Personal portfolio website of a Computer Science & Engineering student, featuring an animated skills
+network, education timeline, certificates gallery and a working contact form that delivers messages
+straight to my inbox.
 
-<p align="center">
-  A modern, responsive personal portfolio website built with HTML, CSS and JavaScript.<br>
-  It showcases my skills, education, certificates and a working contact form.
-</p>
+🔗 **Live Website:** https://pratulshit.github.io/Portfolio/
 
 ---
 
-## Features
+## ✨ Features
 
-- Responsive design for desktop, tablet and mobile
-- Animated typing effect in the hero section
-- Interactive skills network with live flowing animation
-- Animated education timeline with scroll reveal
-- Certificates gallery
-- Working contact form (sends email via FormSubmit)
-- Downloadable resume
-- Smooth scrolling and active navbar highlighting
-
----
-
-## Tech Stack
-
-- **HTML5** for structure
-- **CSS3** for styling and animations
-- **JavaScript (Vanilla)** for interactivity
-- **Font Awesome** for icons
-- **FormSubmit** for the contact form
+- 🎨 Fully responsive, animated single-page portfolio — Home, Skills, Education, Certificates, Contact
+- ⌨️ **Typing Animation** — hero section cycles through CSE Student, Web Developer, Problem Solver and Tech Enthusiast
+- 🕸️ **Interactive Skills Network** — animated connections with live data-flow dots between skills
+- 🎓 Education timeline with smooth scroll-reveal animation
+- 🏅 Certificates gallery
+- 📄 One-click resume download from the hero section
+- 📬 Contact form that sends messages directly to my email (via FormSubmit)
+- 🧭 Smooth scrolling with active navbar highlighting and mobile-friendly menu
 
 ---
 
-## Project Structure
+## 🛠️ Tech Stack
+
+### Frontend
+| Tech | Purpose |
+|---|---|
+| 🧱 HTML5 | Page structure & semantic markup |
+| 🎨 CSS3 | Styling, layout & animations |
+| ⚡ JavaScript (Vanilla) | Interactivity, typing effect, scroll animations |
+| 🧩 Font Awesome | Icons |
+
+### Services
+| Service | Purpose |
+|---|---|
+| ✉️ FormSubmit | Delivers contact form messages to email |
+
+### Deployment
+| Service | Type |
+|---|---|
+| GitHub Pages | Static site hosting |
+
+---
+
+## 📁 Project Structure
 
 ```
 Portfolio/
@@ -44,35 +53,54 @@ Portfolio/
 │   ├── certificate_3.jpeg
 │   ├── myphoto.jpeg
 │   └── Pratul_Shit_Resume.pdf
-├── index.html
-├── script.js
-└── style.css
+├── index.html        # Page structure and all sections
+├── style.css         # Styling and animations
+├── script.js         # Typing effect, skills network, scroll logic, contact form
+└── README.md
 ```
 
 ---
 
-## Run Locally
+## 🚀 Local Setup
+
+### 1️⃣ Clone the repository
 
 ```bash
 git clone https://github.com/Pratulshit/Portfolio.git
 cd Portfolio
 ```
 
-Then open `index.html` in your browser, or use the Live Server extension in VS Code.
+### 2️⃣ Run the project
+
+No build step or dependencies needed. Either:
+
+- Open `index.html` directly in your browser, or
+- Use the **Live Server** extension in VS Code (right click `index.html` → *Open with Live Server*)
 
 ---
 
-## Contact
+## ☁️ Deployment (GitHub Pages)
 
-<p>
-  <a href="https://www.linkedin.com/in/pratul-shit-aa621934a/">LinkedIn</a> &nbsp;|&nbsp;
-  <a href="https://github.com/Pratulshit">GitHub</a> &nbsp;|&nbsp;
-  <a href="https://leetcode.com/u/pratulshit2005/">LeetCode</a> &nbsp;|&nbsp;
-  <a href="mailto:bubai7846@gmail.com">Email</a>
-</p>
+- 📂 Go to the repository **Settings → Pages**
+- 🌿 Source: **Deploy from a branch**
+- 🔀 Branch: `main`, Folder: `/ (root)`
+- 💾 Click **Save**. The site goes live in a minute at `https://pratulshit.github.io/Portfolio/`
+
+> ⚠️ The first time the contact form is used, FormSubmit sends an activation email to the receiving
+> address. Confirm it once, otherwise messages will not be delivered.
 
 ---
 
-<p align="center">
-  © 2026 Pratul Shit. All Rights Reserved.
-</p>
+## 🔒 Notes
+
+- The contact form uses a third-party service, so no backend or API keys are stored in this repository
+- Keep personal documents in `assets/` limited to files you are comfortable sharing publicly
+
+---
+
+## 👨‍💻 Author
+
+**Pratul Shit** — B.Tech CSE Student, Hooghly Engineering and Technology College
+
+🔗 [LinkedIn](https://www.linkedin.com/in/pratul-shit-aa621934a/) • [GitHub](https://github.com/Pratulshit) • [LeetCode](https://leetcode.com/u/pratulshit2005/)
+📧 bubai7846@gmail.com
